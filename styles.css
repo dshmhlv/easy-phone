@@ -1,0 +1,9 @@
+#contacts{}
+.contact{border:solid; width: 25%;width: fit-content;}
+.contactName{}
+.contactPhone{}
+.contactImage {width:150px; height: 150px;}
+
+.header{
+text-align: center;
+}

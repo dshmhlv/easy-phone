@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call me</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <h1 class="header">CallMe</h1>
+        
+
+        <div id = "contacts"></div>
+
+
+    <a href="addContact.html">Settings</a>
+</body>
+
+
+<script>
+
+   // var contacts =JSON.parse(document.cookie);
+
+    const parent = document.getElementById("contacts");
+
+
+   
+    var local = localStorage.getItem("contacts");
+
+    local = JSON.parse(local);
+
+    local.forEach(element => {
+        console.log(element);
+
+        
+
+        const div = document.createElement('div');
+        div.setAttribute("class","contact");
+        const name = document.createElement('p');
+        name.setAttribute("class","contactName");
+        name.innerText = element.name;
+        const phone = document.createElement('a');
+        phone.setAttribute("class","contactPhone");
+        phone.setAttribute('href',"tel:" + phone);
+        phone.innerText = element.phone;
+        const img = document.createElement('img');
+        img.setAttribute("class","contactImage");
+        var retrievedObject = localStorage.getItem(element.phone);
+        img.setAttribute("src",retrievedObject);
+
+        div.appendChild(img);
+        div.appendChild(name);
+        div.appendChild(phone);
+
+        parent.appendChild(div);
+    });
+/*
+
+    contacts.forEach(element => {
+        //console.log(element);
+
+        
+
+        const div = document.createElement('div');
+        
+        const name = document.createElement('p');
+        name.innerText = element.name;
+        const phone = document.createElement('a');
+        phone.setAttribute('href',"tel:" + phone);
+        phone.innerText = element.phone;
+        const img = document.createElement('img');
+
+        var retrievedObject = localStorage.getItem(element.phone);
+        img.setAttribute("src",retrievedObject);
+
+        div.appendChild(img);
+        div.appendChild(name);
+        div.appendChild(phone);
+
+        parent.appendChild(div);
+
+
+    });
+*/
+
+
+</script>
+
+
+
+</html>

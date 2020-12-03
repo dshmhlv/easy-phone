@@ -1,0 +1,99 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallMe</title>
+</head>
+<body>
+    <form>
+        <input type='file'id="inp" />
+        <input type ="text" value="Name" id="nameField">
+        <input type="phone" value="phone" id = "phoneField" >
+        <input type = "submit" onClick="" id="submit">
+    </form>
+</body>
+
+<script>
+
+
+
+//Find register button
+const registerForm = document.getElementById('submit');
+//If submit button is pressed -> call getData and get info from input boxes
+registerForm.addEventListener("click",function(e) {getData(e);},false);
+
+document.getElementById("inp").addEventListener("change", readFile);
+
+var b64;
+
+function readFile() {
+  
+  if (this.files && this.files[0]) {
+    
+    var FR= new FileReader();
+    
+    FR.addEventListener("load", function(e) {
+  
+        b64 = e.target.result;
+    
+    }); 
+    
+    FR.readAsDataURL( this.files[0] );
+  }
+  
+}
+
+
+
+
+function getData(e)
+{
+    //Get info from input boxes
+    e.preventDefault();
+    var nameValue = document.getElementById("nameField").value;
+    var phoneValue = document.getElementById("phoneField").value;
+
+    
+
+    saveToCookie(nameValue,phoneValue,b64);
+}
+
+function saveToCookie(name,phone,b64)
+{
+/*
+if(document.cookie == null || document.cookie == ''){
+    document.cookie = JSON.stringify([]);
+
+}
+*/
+//Save pic with phone as key
+localStorage.setItem(phone,b64);
+
+var obj = {"phone":phone,"name":name};
+
+
+j = JSON.parse(localStorage.getItem("contacts"));
+//If localstorarge is not json object -> make empty json object.
+if(j == null)
+{
+    j = [];
+}
+
+
+j.push(obj);
+//Save contacts
+localStorage.setItem("contacts",JSON.stringify(j));
+
+}
+
+
+
+
+
+</script>
+
+</html>
