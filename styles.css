@@ -1,9 +1,72 @@
-#contacts{}
-.contact{border:solid; width: 25%;width: fit-content;}
+#contacts{
+    background-color: #c1e9f6;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding : 10px;
+}
+.contact{
+    
+    width: fit-content;
+    border-radius: 40px;
+    background: #c1e9f6;
+    box-shadow:  5px 5px 10px #91afb9, 
+                 -5px -5px 10px #f1ffff;
+    
+    
+                 display: inline-block;
+    
+    text-align: center;
+    padding-bottom: 4px;
+}
 .contactName{}
 .contactPhone{}
-.contactImage {width:150px; height: 150px;}
+.contactImage {
+    width:150px; 
+    height: 150px;
+    border-radius: 40px;
+}
 
 .header{
 text-align: center;
+}
+
+
+form
+{
+    margin: 0 auto;
+    width:50%;
+    text-align: center;
+    
+}
+#inp
+{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.15em;
+    width: 90%;
+    margin-bottom: 10px;
+}
+#phoneField
+{   
+    font-size: 1.2em;
+    display: block;
+    margin: 0 auto;
+    
+}
+#nameField
+{
+display: block;
+margin: 0 auto;
+margin-bottom: 10px;
+font-size: 1.2em;
+}
+#submit
+{
+    font-size: 1.2em;
+    margin:10px;
 }
